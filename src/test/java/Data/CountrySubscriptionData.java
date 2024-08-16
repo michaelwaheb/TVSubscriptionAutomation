@@ -24,6 +24,4 @@ public class CountrySubscriptionData
                 {"Iraq","iq","PREMIUM","6.2","USD"}};
     }
 
-   // ,{"eg","Classic","0.5","USD"},{"eg","Premium","1","USD"}
-   //{"eg","Lite","0.25","USD"}
 }

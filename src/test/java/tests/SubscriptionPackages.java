@@ -14,100 +14,82 @@ public class SubscriptionPackages extends BaseTest
     //Test case to validate lite package with price and currency for three countries
     @Test (dataProvider = "LiteSubscriptionData", dataProviderClass = CountrySubscriptionData.class)
 
-    public  void Validatelitepackageforcountries(String countryname,String countryid,String type,String price,String currency)
+    public  void Validatelitepackageforcountries(String expectedcountryname,String countryid,String Expectedpackagetype,String price,String currency)
     {
     //change tests names
     AllureLifecycle lifecycle = Allure.getLifecycle();
-    lifecycle.updateTestCase(testResult -> testResult.setName("Validate lite package for " + countryname));
+    lifecycle.updateTestCase(testResult -> testResult.setName("Validate lite package for " + expectedcountryname));
 
     HomePage homePage = new HomePage(driver);
     if (homePage.validateenglishlanguage().equals("English"))
     {
             homePage.clickenglishlanguagebutton();
     }
-    homePage.opencountrypopup();
+    homePage.opencountriespopup();
     homePage.selectcountry(countryid);
 
     //Validate country name
-    String actualcountryname = homePage.countryname();
-    String expectedcountryname = countryname;
-    Assert.assertEquals (actualcountryname,expectedcountryname);
+    Assert.assertEquals (homePage.actualcountryname(),expectedcountryname);
 
     //Validate Package type
-    String typeactualmessage = homePage.ValidatePackagelite();
-    String typeExpectedmessage = type;
-    Assert.assertEquals(typeactualmessage,typeExpectedmessage);
+    Assert.assertEquals(homePage.ActualPackagetypelite(),Expectedpackagetype);
 
     //Validate Package price & currency
-    String actualPricecurrency = homePage.ValidatePackagelitePrice();
-    String expectedPricecurrency = price +" "+ currency + "/month" ;
-    Assert.assertEquals(actualPricecurrency,expectedPricecurrency);
+    Assert.assertEquals(homePage.ActualPackagelitePriceCurrency(),price +" "+ currency + "/month");
     }
 
     //Test case to validate classic package with price and currency for three countries
     @Test (dataProvider = "ClassicSubscriptionData", dataProviderClass = CountrySubscriptionData.class)
 
-    public  void Validateclassicpackageforcountries(String countryname,String countryid,String type,String price,String currency)
+    public  void Validateclassicpackageforcountries(String expectedcountryname,String countryid,String Expectedpackagetype,String price,String currency)
     {
         //change tests names
         AllureLifecycle lifecycle = Allure.getLifecycle();
-        lifecycle.updateTestCase(testResult -> testResult.setName("Validate classic package for " + countryname));
+        lifecycle.updateTestCase(testResult -> testResult.setName("Validate classic package for " + expectedcountryname));
 
         HomePage homePage = new HomePage(driver);
         if (homePage.validateenglishlanguage().equals("English"))
         {
             homePage.clickenglishlanguagebutton();
         }
-        homePage.opencountrypopup();
+        homePage.opencountriespopup();
         homePage.selectcountry(countryid);
 
         //Validate country name
-        String actualcountryname = homePage.countryname();
-        String expectedcountryname = countryname;
-        Assert.assertEquals (actualcountryname,expectedcountryname);
+        Assert.assertEquals (homePage.actualcountryname(),expectedcountryname);
 
         //Validate Package type
-        String typeactualmessage = homePage.ValidatePackageClassic();
-        String typeExpectedmessage = type;
-        Assert.assertEquals(typeactualmessage,typeExpectedmessage);
+        Assert.assertEquals(homePage.ActualPackagetypeClassic(),Expectedpackagetype);
 
         //Validate Package price & currency
-        String actualPricecurrency = homePage.ValidatePackageClassicPrice();
-        String expectedPricecurrency = price +" "+ currency + "/month" ;
-        Assert.assertEquals(actualPricecurrency,expectedPricecurrency);
+        Assert.assertEquals(homePage.ActualPackageClassicPriceCurrency(),price +" "+ currency + "/month");
     }
 
     //Test case to validate premium package with price and currency for three countries
     @Test (dataProvider = "PremiumSubscriptionData", dataProviderClass = CountrySubscriptionData.class)
 
-    public  void ValidatePremiumpackageforcountries(String countryname,String countryid,String type,String price,String currency)
+    public  void ValidatePremiumpackageforcountries(String expectedcountryname,String countryid,String Expectedpackagetype,String price,String currency)
     {
         //change tests names
         AllureLifecycle lifecycle = Allure.getLifecycle();
-        lifecycle.updateTestCase(testResult -> testResult.setName("Validate premium package for " + countryname));
+        lifecycle.updateTestCase(testResult -> testResult.setName("Validate premium package for " + expectedcountryname));
 
         HomePage homePage = new HomePage(driver);
         if (homePage.validateenglishlanguage().equals("English"))
         {
             homePage.clickenglishlanguagebutton();
         }
-        homePage.opencountrypopup();
+        homePage.opencountriespopup();
         homePage.selectcountry(countryid);
 
         //Validate country name
-        String actualcountryname = homePage.countryname();
-        String expectedcountryname = countryname;
-        Assert.assertEquals (actualcountryname,expectedcountryname);
+        Assert.assertEquals (homePage.actualcountryname(),expectedcountryname);
 
         //Validate Package type
-        String typeactualmessage = homePage.ValidatePackagePermium();
-        String typeExpectedmessage = type;
-        Assert.assertEquals(typeactualmessage,typeExpectedmessage);
+        Assert.assertEquals(homePage.ActualPackagetypePermium(),Expectedpackagetype);
 
         //Validate Package price & currency
-        String actualPricecurrency = homePage.ValidatePackagePermiumPrice();
-        String expectedPricecurrency = price +" "+ currency + "/month" ;
-        Assert.assertEquals(actualPricecurrency,expectedPricecurrency);
+        Assert.assertEquals(homePage.ActualPackageePermiumPriceCurrency(),price +" "+ currency + "/month");
     }
 
 

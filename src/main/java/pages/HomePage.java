@@ -2,7 +2,6 @@ package pages;
 import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import java.time.Duration;
 
 public class HomePage extends BasePage
 {
@@ -28,47 +27,47 @@ public class HomePage extends BasePage
     public void clickenglishlanguagebutton()
     {
         driver.findElement(languagebutton).click();
+
     }
     public String validateenglishlanguage()
     {
         return driver.findElement(languagebutton).getText();
     }
 
-    public void opencountrypopup()
+    public void opencountriespopup()
     {
         driver.findElement(countrybutton).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 
     public void selectcountry(String country)
     {
         driver.findElement( By.id(country)).click();
     }
-    public String countryname()
+    public String actualcountryname()
     {
         return driver.findElement(countryname).getText();
     }
-    public String ValidatePackagelite()
+    public String ActualPackagetypelite()
     {
         return driver.findElement(Litepackage).getText();
     }
-    public String ValidatePackagelitePrice()
+    public String ActualPackagelitePriceCurrency()
     {
       return driver.findElement(Litepricecurrency).getText();
     }
-    public String ValidatePackageClassic()
+    public String ActualPackagetypeClassic()
     {
         return driver.findElement(Classicpackage).getText();
     }
-    public String ValidatePackageClassicPrice()
+    public String ActualPackageClassicPriceCurrency()
     {
         return driver.findElement(Classicpricecurrency).getText();
     }
-    public String ValidatePackagePermium()
+    public String ActualPackagetypePermium()
     {
         return driver.findElement( Premiumpackage).getText();
     }
-    public String ValidatePackagePermiumPrice()
+    public String ActualPackageePermiumPriceCurrency()
     {
         return driver.findElement( Premiumpricecurrency).getText();
     }
