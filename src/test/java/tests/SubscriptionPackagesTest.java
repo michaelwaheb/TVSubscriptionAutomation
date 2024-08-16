@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
-public class SubscriptionPackages extends BaseTest
+public class SubscriptionPackagesTest extends BaseTest
 {
 
     //Test case to validate lite package with price and currency for three countries
@@ -16,11 +16,12 @@ public class SubscriptionPackages extends BaseTest
 
     public  void Validatelitepackageforcountries(String expectedcountryname,String countryid,String Expectedpackagetype,String price,String currency)
     {
-    //change tests names
+    //change test names with it's arguments in allure report to be more readable
     AllureLifecycle lifecycle = Allure.getLifecycle();
     lifecycle.updateTestCase(testResult -> testResult.setName("Validate lite package for " + expectedcountryname));
 
-    HomePage homePage = new HomePage(driver);
+
+        HomePage homePage = new HomePage(driver);
     if (homePage.validateenglishlanguage().equals("English"))
     {
             homePage.clickenglishlanguagebutton();
