@@ -2,12 +2,13 @@ package pages;
 import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class HomePage extends BasePage
 {
 
     //Locators
-    private final By languagebutton = By.id("translation-btn");
+    private final By language = By.id("translation-btn");
     private final By countrybutton = By.id("country-btn");
     private final By countryname = By.id("country-name");
     private final By Litepackage = By.id("name-lite");
@@ -24,53 +25,66 @@ public class HomePage extends BasePage
         super(driver);
     }
 
-    public void clickenglishlanguagebutton()
+    public HomePage clickenglishlanguagebutton()
     {
-        driver.findElement(languagebutton).click();
-
-    }
-    public String validateenglishlanguage()
-    {
-        return driver.findElement(languagebutton).getText();
-    }
-
-    public void opencountriespopup()
-    {
-        driver.findElement(countrybutton).click();
+        if (gettext(language).equals("English"))
+        {
+            click(language);
+        }
+        return new HomePage(driver);
     }
 
-    public void selectcountry(String country)
+
+    public HomePage opencountriespopup()
     {
-        driver.findElement( By.id(country)).click();
-    }
-    public String actualcountryname()
-    {
-        return driver.findElement(countryname).getText();
-    }
-    public String ActualPackagetypelite()
-    {
-        return driver.findElement(Litepackage).getText();
-    }
-    public String ActualPackagelitePriceCurrency()
-    {
-      return driver.findElement(Litepricecurrency).getText();
-    }
-    public String ActualPackagetypeClassic()
-    {
-        return driver.findElement(Classicpackage).getText();
-    }
-    public String ActualPackageClassicPriceCurrency()
-    {
-        return driver.findElement(Classicpricecurrency).getText();
-    }
-    public String ActualPackagetypePermium()
-    {
-        return driver.findElement( Premiumpackage).getText();
-    }
-    public String ActualPackageePermiumPriceCurrency()
-    {
-        return driver.findElement( Premiumpricecurrency).getText();
+        click(countrybutton);
+        return new HomePage(driver);
     }
 
+    public HomePage selectcountry(String country)
+    {
+
+        click( By.id(country));
+        return new HomePage(driver);
+    }
+
+
+    public HomePage checklitepackagedetailsforcountries(String Expectedcountryname,String Expectedpackagetype,String price,String currency)
+    {
+        //Validate country name
+        Assert.assertEquals (gettext(countryname),Expectedcountryname);
+
+        //Validate Package type
+        Assert.assertEquals(gettext(Litepackage),Expectedpackagetype);
+
+        //Validate Package price & currency
+        Assert.assertEquals(gettext(Litepricecurrency),price +" "+ currency + "/month");
+        return new HomePage(driver);
+    }
+
+    public HomePage checkclassicpackagedetailsforcountries(String Expectedcountryname,String Expectedpackagetype,String price,String currency)
+    {
+        //Validate country name
+        Assert.assertEquals (gettext(countryname),Expectedcountryname);
+
+        //Validate Package type
+        Assert.assertEquals(gettext(Classicpackage),Expectedpackagetype);
+
+        //Validate Package price & currency
+        Assert.assertEquals(gettext(Classicpricecurrency),price +" "+ currency + "/month");
+        return new HomePage(driver);
+    }
+    public HomePage checkPremiumpackagedetailsforcountries(String Expectedcountryname,String Expectedpackagetype,String price,String currency)
+    {
+        //Validate country name
+        Assert.assertEquals (gettext(countryname),Expectedcountryname);
+
+        //Validate Package type
+        Assert.assertEquals(gettext(Premiumpackage),Expectedpackagetype);
+
+        //Validate Package price & currency
+        Assert.assertEquals(gettext(Premiumpricecurrency),price +" "+ currency + "/month");
+        return new HomePage(driver);
+    }
 
 }
