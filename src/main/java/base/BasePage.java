@@ -2,6 +2,7 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
+import io.qameta.allure.Allure;
 
 public abstract class BasePage
 {

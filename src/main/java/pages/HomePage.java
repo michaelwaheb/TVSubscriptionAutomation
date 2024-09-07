@@ -3,6 +3,8 @@ import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import io.qameta.allure.Step;
+
 
 public class HomePage extends BasePage
 {
@@ -24,7 +26,6 @@ public class HomePage extends BasePage
     {
         super(driver);
     }
-
     public HomePage clickenglishlanguagebutton()
     {
         if (gettext(language).equals("English"))
