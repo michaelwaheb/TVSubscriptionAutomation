@@ -3,6 +3,10 @@ package base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public abstract class BasePage
 {
     protected WebDriver driver;
@@ -20,5 +24,7 @@ public abstract class BasePage
     {
         return driver.findElement(locator).getText();
     }
+
+
 
 }

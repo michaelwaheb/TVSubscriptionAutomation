@@ -63,12 +63,11 @@
                 <artifactId>aspectjweaver</artifactId>
                 <version>${aspectj.version}</version>
                 <scope>runtime</scope>
-            </dependency>
 
+            </dependency>
         </dependencies>
     </plugin>
         </plugins>
         </pluginManagement>
-
     </build>
 </project>
