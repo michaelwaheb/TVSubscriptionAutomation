@@ -38,7 +38,7 @@ Allure is used for generating detailed test reports.
     - *For Windows:*
 
         - Download the Allure Commandline [from GitHub](https://github.com/allure-framework/allure2/releases) and add it to your system's PATH.
-        - Open CMD and run the following command (allure serve "Path\allure-results")
+        - Open CMD and run the following command (allure serve "Path\allure-results") or open execute Mavn goal from intellji ide and run (mvn allure:serve)
          
 
 ## Running the Tests
