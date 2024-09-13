@@ -1,5 +1,6 @@
 package pages;
 import base.BasePage;
+import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -26,6 +27,7 @@ public class HomePage extends BasePage
     {
         super(driver);
     }
+    @Step("Select English as site language")
     public HomePage clickenglishlanguagebutton()
     {
         if (gettext(language).equals("English"))
@@ -35,13 +37,13 @@ public class HomePage extends BasePage
         return new HomePage(driver);
     }
 
-
+    @Step("Open countries popup")
     public HomePage opencountriespopup()
     {
         click(countrybutton);
         return new HomePage(driver);
     }
-
+    @Step("Select Country")
     public HomePage selectcountry(String country)
     {
 
@@ -49,40 +51,49 @@ public class HomePage extends BasePage
         return new HomePage(driver);
     }
 
-
+    @Step ("check lite package details for country")
     public HomePage checklitepackagedetailsforcountries(String Expectedcountryname,String Expectedpackagetype,String price,String currency)
     {
+        Allure.step("Validate country name");
         //Validate country name
         Assert.assertEquals (gettext(countryname),Expectedcountryname);
-
+        Allure.step("Validate Package type");
         //Validate Package type
         Assert.assertEquals(gettext(Litepackage),Expectedpackagetype);
-
+        Allure.step("Validate Package price & currency");
         //Validate Package price & currency
         Assert.assertEquals(gettext(Litepricecurrency),price +" "+ currency + "/month");
         return new HomePage(driver);
     }
 
+    @Step ("check classic package details for country")
     public HomePage checkclassicpackagedetailsforcountries(String Expectedcountryname,String Expectedpackagetype,String price,String currency)
     {
+        Allure.step("Validate country name");
         //Validate country name
         Assert.assertEquals (gettext(countryname),Expectedcountryname);
 
+        Allure.step("Validate Package type");
         //Validate Package type
         Assert.assertEquals(gettext(Classicpackage),Expectedpackagetype);
 
+        Allure.step("Validate Package price & currency");
         //Validate Package price & currency
         Assert.assertEquals(gettext(Classicpricecurrency),price +" "+ currency + "/month");
         return new HomePage(driver);
     }
+    @Step ("check Premium package details for country")
     public HomePage checkPremiumpackagedetailsforcountries(String Expectedcountryname,String Expectedpackagetype,String price,String currency)
     {
+        Allure.step("Validate country name");
         //Validate country name
         Assert.assertEquals (gettext(countryname),Expectedcountryname);
 
+        Allure.step("Validate Package type");
         //Validate Package type
         Assert.assertEquals(gettext(Premiumpackage),Expectedpackagetype);
 
+        Allure.step("Validate Package price & currency");
         //Validate Package price & currency
         Assert.assertEquals(gettext(Premiumpricecurrency),price +" "+ currency + "/month");
         return new HomePage(driver);
